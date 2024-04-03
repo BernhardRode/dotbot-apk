@@ -10,7 +10,7 @@ class Apk(dotbot.Plugin):
 
     def handle(self, directive: str, packages: List[str]) -> bool:
         success = self._run(["apk", "update"], "Updating apk") \
-                  and self._run(["apk", "install", "-y"] + packages,
+                  and self._run(["apk", "add"] + packages,
                                 "Installing the apk packages: {}".format(", ".join(packages)))
 
         if success:
